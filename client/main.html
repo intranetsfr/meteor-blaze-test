@@ -7,38 +7,87 @@
 
 <body>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content">
-      
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
-  {{> info}}
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Jeremy - Test</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
     </div>
-  </main>
-</div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--12-col">
+              <h1>Welcome to Meteor!</h1>
+          </div>
+          <div class="mdl-cell mdl-cell--8-col">
+            {{> exportList}}
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+            {{> info}}
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+
 
 <template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+  <div class="mdl-card  mdl-shadow--2dp" style="width: 100%">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Learn Meteor!</h2>
+    </div>
+    <div class="mdl-card__supporting-text">     
+      <ul>
+        <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
+        <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
+        <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
+        <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template name="exportList">
+  <div class="mdl-card  mdl-shadow--2dp" style="width: 100%">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Export</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <ul class="demo-list-item mdl-list">
+      {{#each exports}}
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+          Export ID: {{_id}}
+          <br /> 
+          Progress: {{progress}}%
+          <br /> 
+          Status: {{status}}
+          <br />
+          <br />
+          
+
+          <a href="{{url}}" targe="_blank">{{url}}</a>
+          </span>
+        </li>
+        <div class="mdl-progress mdl-js-progress" id="progress_{{_id}}"></div>
+      {{/each}}
+      </ul>
+    </div>
+    <div class="mdl-card__actions mdl-card--border" align="end">
+      {{#if exportsNotEmpty }}?
+      <button class="mdl-button mdl-js-button mdl-button--accent" id="clearExport">Clear List</button>
+      {{/if}}
+      <button class="mdl-button mdl-button--raised mdl-button--colored" id="startExport">Export List</button>
+    </div>
+  </div>
+  <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
 </template>

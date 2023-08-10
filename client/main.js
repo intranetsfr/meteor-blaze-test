@@ -1,29 +1,71 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { ExportCollection } from '/imports/api/ExportCollection';
+
 
 import './main.html';
 import 'material-design-lite/dist/material.min.css';
 import 'material-design-lite/dist/material.min.js';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+Template.exportList.onCreated(function () {
+  this.exports = new ReactiveVar([]);
+
+  console.info("Export List init");
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
+Template.exportList.helpers({
+  //Get Collection List
+  exports() {
+    const exportCollection = ExportCollection.find();
+    //console.log(exportCollection);
+    return exportCollection;
+  },
+  exportsNotEmpty() {
+    return ExportCollection.find().count() > 0;
   },
 });
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
+Template.exportList.events({
+  'click #startExport'(event, instance) {
+    Meteor.call('startExport');
   },
+  'click #clearExport'(event, instance) {
+    if (confirm("Are you sur ?")) {
+      componentHandler.upgradeDom();
+      Meteor.call('clearCollection', 'Exports', (error, result) => {
+        let message = null;
+        if (error) {
+          message = error.reason;
+        } else {
+          message = 'Export is clear now';
+        }
+
+        var snackbarContainer = document.querySelector('#demo-snackbar-example');
+        var data = {
+          message: message,
+          timeout: 2000,
+        };
+        snackbarContainer.MaterialSnackbar.showSnackbar(data);
+      });
+    }
+  }
 });
 
-// Initialize Material Design Lite components (if needed)
+
+Template.exportList.onRendered(function () {
+  //Update MDL Dom
+  // Upgrade each progress bar
+  const exports = ExportCollection.find().fetch();
+  exports.forEach((exportItem) => {
+    const progress = exportItem.progress;
+    const progressElement = this.find(`#progress_${exportItem._id}`);
+    if (progressElement) {
+      progressElement.MaterialProgress.setProgress(progress);
+    } else {
+      console.error(progressElement)
+    }
+  });
+  componentHandler.upgradeDom();
+});
 document.addEventListener('DOMContentLoaded', () => {
   window.componentHandler.upgradeAllRegistered();
 });
