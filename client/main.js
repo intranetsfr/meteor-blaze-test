@@ -39,7 +39,7 @@ Template.exportList.events({
           message = 'Export is clear now';
         }
 
-        var snackbarContainer = document.querySelector('#demo-snackbar-example');
+        var snackbarContainer = document.querySelector('#snackbarResultClearExports');
         var data = {
           message: message,
           timeout: 2000,

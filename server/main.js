@@ -9,7 +9,7 @@ Meteor.startup(() => {
 Meteor.methods({
   startExport() {
     const totalProgressSteps = 100;
-    const intervalValue = 100;
+    const intervalValue = 1000;
     const progressStep = 5;
 
     const exportId = ExportCollection.insert({ progress: 0, status: 'in-progress' });
