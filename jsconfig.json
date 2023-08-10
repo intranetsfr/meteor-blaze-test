@@ -1,0 +1,68 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "allowJs": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "/*": [
+        "./*"
+      ],
+      "meteor/mongo": [
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/local_collection_driver.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/collection.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/connection_options.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/doc_fetcher.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/mongo_driver.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/mongo_utils.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/observe_multiplex.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/oplog_observe_driver.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/oplog_tailing.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/oplog_v2_converter.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/polling_observe_driver.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/mongo/1.16.7/web.browser/remote_collection_driver.js"
+      ],
+      "meteor/jquery": [
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/jquery/3.0.0/web.browser/main.js"
+      ],
+      "meteor/reactive-var": [
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/reactive-var/1.0.12/web.browser/reactive-var.js"
+      ],
+      "meteor/tracker": [
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/tracker/1.3.2/web.browser/tracker.js"
+      ],
+      "meteor/es5-shim": [
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/es5-shim/4.8.0/web.browser/client.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/es5-shim/4.8.0/web.browser/console.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/es5-shim/4.8.0/web.browser/cordova.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/es5-shim/4.8.0/web.browser/export_globals.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/es5-shim/4.8.0/web.browser/import_globals.js"
+      ],
+      "meteor/ecmascript": [
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/ecmascript/0.16.7/web.browser/ecmascript.js"
+      ],
+      "meteor/shell-server": [
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/shell-server/0.5.0/web.browser/main.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/shell-server/0.5.0/web.browser/shell-server.js"
+      ],
+      "meteor/hot-module-replacement": [
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/hot-module-replacement/0.5.3/web.browser/hot-api.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/hot-module-replacement/0.5.3/web.browser/client.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/hot-module-replacement/0.5.3/web.browser/server.js"
+      ],
+      "meteor/blaze-hot": [
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/blaze-hot/1.1.1/web.browser/hot.js",
+        "C:\\Users\\rotyj\\AppData\\Local/.meteor/packages/blaze-hot/1.1.1/web.browser/update-templates.js"
+      ]
+    }
+  },
+  "typeAcquisition": {
+    "include": [
+      "meteor"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    ".meteor"
+  ]
+}
