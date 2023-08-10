@@ -34,7 +34,7 @@ Meteor.methods({
       ExportCollection.remove({});
       return true;
     } catch (error) {
-      throw new Meteor.Error('clear-collection-error', 'Une erreur est survenue lors de la suppression des données.');
+      throw new Meteor.Error('clear-collection-error', error);
     }
   }
 });
